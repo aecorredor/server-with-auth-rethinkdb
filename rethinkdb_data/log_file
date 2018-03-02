@@ -35,3 +35,32 @@
 2018-02-27T11:45:53.195432000 3325.500378s notice: All client connections closed.
 2018-02-27T11:45:53.195440000 3325.500385s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
 2018-02-27T11:45:53.198194000 3325.503139s notice: Storage engine shut down.
+2018-02-28T09:34:07.315825000 0.042501s notice: Recursively removing directory /Users/alejandro/projects/server-with-auth-rethinkdb/rethinkdb_data/tmp
+2018-02-28T09:34:07.317492000 0.044172s notice: Running rethinkdb 2.3.6 (CLANG 9.0.0 (clang-900.0.37))...
+2018-02-28T09:34:07.322834000 0.049509s notice: Running on Darwin 17.4.0 x86_64
+2018-02-28T09:34:07.322880000 0.049554s notice: Loading data from directory /Users/alejandro/projects/server-with-auth-rethinkdb/rethinkdb_data
+2018-02-28T09:34:07.360729000 0.087402s info: Automatically using cache size of 4705 MB
+2018-02-28T09:34:07.362410000 0.089084s notice: Listening for intracluster connections on port 29015
+2018-02-28T09:34:07.376581000 0.103254s notice: Listening for client driver connections on port 28015
+2018-02-28T09:34:07.376753000 0.103425s notice: Listening for administrative HTTP connections on port 8080
+2018-02-28T09:34:07.376757000 0.103430s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2018-02-28T09:34:07.376760000 0.103432s notice: Listening on driver addresses: 127.0.0.1, ::1
+2018-02-28T09:34:07.376762000 0.103435s notice: Listening on http addresses: 127.0.0.1, ::1
+2018-02-28T09:34:07.376949000 0.103622s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-02-28T09:34:07.376952000 0.103625s notice: Server ready, "ip_192_168_86_28_ec2_internal_j8m" 6dfee956-af48-4e24-9cab-bf75ee648d78
+2018-02-28T09:34:08.660949000 1.387584s info: Table 47b3bb2f-4f7a-4148-8a69-4a8fc5ef18b5: Starting a new Raft election for term 3.
+2018-02-28T09:34:08.690350000 1.416983s info: Table 47b3bb2f-4f7a-4148-8a69-4a8fc5ef18b5: This server is Raft leader for term 3. Latest log index is 5.
+2018-03-02T09:15:05.833829000 0.032172s notice: Running rethinkdb 2.3.6 (CLANG 9.0.0 (clang-900.0.37))...
+2018-03-02T09:15:05.838964000 0.037304s notice: Running on Darwin 17.4.0 x86_64
+2018-03-02T09:15:05.839021000 0.037359s notice: Loading data from directory /Users/alejandro/projects/server-with-auth-rethinkdb/rethinkdb_data
+2018-03-02T09:15:05.874908000 0.073247s info: Automatically using cache size of 5460 MB
+2018-03-02T09:15:05.876245000 0.074584s notice: Listening for intracluster connections on port 29015
+2018-03-02T09:15:05.894010000 0.092349s notice: Listening for client driver connections on port 28015
+2018-03-02T09:15:05.894238000 0.092577s notice: Listening for administrative HTTP connections on port 8080
+2018-03-02T09:15:05.894242000 0.092580s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2018-03-02T09:15:05.894244000 0.092583s notice: Listening on driver addresses: 127.0.0.1, ::1
+2018-03-02T09:15:05.894247000 0.092585s notice: Listening on http addresses: 127.0.0.1, ::1
+2018-03-02T09:15:05.894259000 0.092598s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2018-03-02T09:15:05.894262000 0.092600s notice: Server ready, "ip_192_168_86_28_ec2_internal_j8m" 6dfee956-af48-4e24-9cab-bf75ee648d78
+2018-03-02T09:15:07.512522000 1.710861s info: Table 47b3bb2f-4f7a-4148-8a69-4a8fc5ef18b5: Starting a new Raft election for term 4.
+2018-03-02T09:15:07.538578000 1.736917s info: Table 47b3bb2f-4f7a-4148-8a69-4a8fc5ef18b5: This server is Raft leader for term 4. Latest log index is 8.
