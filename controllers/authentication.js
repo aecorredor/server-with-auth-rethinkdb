@@ -1,13 +1,12 @@
 const r = require('rethinkdb');
 const bcrypt = require('bcrypt-nodejs');
+const jwt = require('jwt-simple');
+const config = require('../config');
+const { handleError } = require('../utils/errorHelpers');
 
-/*
- * Send back a 500 error
- */
-function handleError(res) {
-  return function genError(error) {
-    res.status(500).send({ error: error.message });
-  };
+function tokenForUser(user) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 
 function genSalt() {
@@ -27,6 +26,12 @@ function genHash(salt, password) {
     });
   });
 }
+
+exports.signin = function signIn(req, res, next) {
+  // User has already had their email and password auth'd
+  // We just need to give them a token
+  res.send({ token: tokenForUser(req.user) });
+};
 
 exports.signup = function signUp(req, res) {
   const { email, password } = req.body;
@@ -63,8 +68,9 @@ exports.signup = function signUp(req, res) {
                   return Promise.reject(new Error('Document was not inserted.'));
                 }
 
+                const createdUser = saved.changes[0].new_val;
                 // Respond to request indicating user was created
-                return res.json(saved.changes[0].new_val);
+                return res.json({ token: tokenForUser(createdUser) });
               })
               .catch(handleError(res));
           })
