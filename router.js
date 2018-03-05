@@ -6,7 +6,11 @@ module.exports = function signUpRoute(app) {
     res.send({ hi: 'there' });
   });
 
-  app.post('/signin', requireSignin, Authentication.signin);
+  app.post('/signin', requireSignin, Authentication.signIn);
 
-  app.post('/signup', Authentication.signup);
+  app.post('/signup', Authentication.signUp);
+
+  app.get('*', (req, res, next) => {
+    next(new Error('not found'));
+  });
 };

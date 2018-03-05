@@ -13,6 +13,10 @@ app.use(bodyParser.json({ type: '*/*' }));
 app.use(db.createConnection);
 router(app);
 app.use(db.closeConnection);
+app.use((err, req, res, next) => {
+  console.error(err.message);
+  res.status(500).send('Something broke!');
+});
 
 // Server setup
 const port = process.env.PORT || 3090;
