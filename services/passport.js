@@ -44,7 +44,7 @@ const jwtOptions = {
 
 // Create JWT strategy
 const jwtLogin = new JwtStrategy(jwtOptions, (req, payload, done) => {
-  // See if the user ID in the payload exists in ourt database
+  // See if the user ID in the payload exists in our database
   // If it does call 'done' with that user
   // otherwise, call 'done' without a user object
   r.table('users')

@@ -1,16 +1,15 @@
 const r = require('rethinkdb');
-const { handleError } = require('../utils/errorHelpers');
 const { genSalt, genHash } = require('../utils/bcryptHelpers');
 const { tokenForUser } = require('../utils/jwtHelpers');
 
 module.exports = {
-  signIn: (req, res) => {
+  signIn: (req, res, next) => {
     // User has already had their email and password auth'd
     // We just need to give them a token
     res.send({ token: tokenForUser(req.user) });
   },
 
-  signUp: (req, res) => {
+  signUp: (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -49,11 +48,11 @@ module.exports = {
                   // Respond to request indicating user was created
                   return res.json({ token: tokenForUser(createdUser) });
                 })
-                .catch(handleError(res));
+                .catch(err => next(err));
             })
-            .catch(handleError(res));
+            .catch(err => next(err));
         }
       })
-      .catch(handleError(res));
+      .catch(err => next(err));
   },
 };

@@ -2,7 +2,7 @@ const Authentication = require('./controllers/authentication');
 const { requireAuth, requireSignin } = require('./services/passport');
 
 module.exports = function signUpRoute(app) {
-  app.get('/', requireAuth, (req, res) => {
+  app.get('/', requireAuth, (req, res, next) => {
     res.send({ hi: 'there' });
   });
 
@@ -11,6 +11,8 @@ module.exports = function signUpRoute(app) {
   app.post('/signup', Authentication.signUp);
 
   app.get('*', (req, res, next) => {
-    next(new Error('not found'));
+    const error = new Error('Resource does not exist.');
+    error.statusCode = 404;
+    next(error);
   });
 };

@@ -2,9 +2,13 @@
  * Send back a 500 error
  */
 module.exports = {
-  handleError: res => (
-    function genError(error) {
-      res.status(500).send({ error: error.message });
+  errorHandler: (err, req, res, next) => {
+    let error = err;
+    if (!error.statusCode) {
+      error = { ...error, statusCode: 500 };
     }
-  ),
+
+    res.status(error.statusCode).send(error.message);
+    return next();
+  },
 };

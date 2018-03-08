@@ -1,7 +1,6 @@
 // Load config for RethinkDB
 const config = require('./config');
 const r = require('rethinkdb');
-const { handleError } = require('./utils/errorHelpers');
 
 module.exports = {
   /*
@@ -15,7 +14,7 @@ module.exports = {
         req._rdbConn = conn;
         next();
       })
-      .error(handleError(res));
+      .error(err => next(err));
   },
 
   /*
